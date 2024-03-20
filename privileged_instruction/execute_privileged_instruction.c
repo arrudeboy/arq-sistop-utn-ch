@@ -18,6 +18,6 @@ int main(void)
 	puts("A punto de ejecutar una instruccion privilegiada...");
 	sleep(2);
 	__asm__ __volatile__ ("cli");
-	puts("Pude ejecutar la instruccion privilegiada?");
+	puts("Si estoy viendo este texto... se pudo ejecutar la instruccion privilegiada");
 	return 0;
 }
