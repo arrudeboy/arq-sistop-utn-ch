@@ -23,7 +23,7 @@ gcc -g execute_privileged_instruction.c
 * Una vez encontrada la instrucción, salga de la vista tipeando "q"
 
 
-##### Preguntas
+#### Preguntas
 * ¿Que comportamiento tuvo Linux al encontrarse con un proceso que intento ejecutar una instrucción privilegiada?
 * Descomente la llamada a la funcion `signal()`, linea 16, para que el proceso capture la señal y ejecute el codigo indicado en la funcion `sig_handler()`. Compile nuevamente y ejecute el programa. Analice el comportamiento del programa y describa lo que ocurrio ahora.
 * Modifique el programa para que la funcion `sig_handler()` no llame a la funcion `exit(-1)`. Compile nuevamente y vuelva a ejecutar.
