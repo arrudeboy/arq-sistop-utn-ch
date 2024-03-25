@@ -7,11 +7,6 @@ El programa crea un proceso hijo, y luego ambos esperan un tiempo y finalizan (d
 gcc -g -o zombie_process.out zombie_process.c
 ```
 
-#### Para ejecutar
-```bash
-./zombie_process.out
-```
-
 #### Pasos a seguir
 1. Ejecutar `watch ps -efo pid,ppid,stat,pmem,rss,cmd`
 2. Ejecutar el programa en otra terminal: `./zombie_process.out`
