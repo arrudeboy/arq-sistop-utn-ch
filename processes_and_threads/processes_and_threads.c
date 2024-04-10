@@ -14,54 +14,60 @@
 #include <sys/wait.h>
 #include <unistd.h>
 
-void* printData();
-void* printDataAndWait();
+void *printData();
+void *printDataAndWait();
 int global = 0;
 
-int main(int argc, char** argv) {
-	
-	int pid = fork();
-	pthread_t thread1, thread2;
+int main(int argc, char **argv)
+{
 
-	if (pid == 0) { // CHILDREN
-        	
-		printData();
-		pthread_create(&thread1, NULL, printDataAndWait, NULL);
-		pthread_create(&thread2, NULL, printDataAndWait, NULL);
-		pthread_join(thread1, NULL);
-		pthread_join(thread2, NULL);
-	}
-	else if (pid > 0) { // PARENT
+    int pid = fork();
+    pthread_t thread1, thread2;
 
-        	printData();
-		waitpid(pid, NULL, 0);
-	}
-    	else { // Error
+    if (pid == 0)
+    { // CHILDREN
 
-		perror("Error forking process...");
-	}
+        printData();
+        pthread_create(&thread1, NULL, printDataAndWait, NULL);
+        pthread_create(&thread2, NULL, printDataAndWait, NULL);
+        pthread_join(thread1, NULL);
+        pthread_join(thread2, NULL);
+    }
+    else if (pid > 0)
+    { // PARENT
 
-	return EXIT_SUCCESS;
+        printData();
+        waitpid(pid, NULL, 0);
+    }
+    else
+    { // Error
+
+        perror("Error forking process...");
+    }
+
+    return EXIT_SUCCESS;
 }
 
-void* printDataAndWait() {
+void *printDataAndWait()
+{
 
-	printData();
-	sleep(10);
+    printData();
+    sleep(10);
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
 
-void* printData() {
+void *printData()
+{
 
-	pid_t pid, ppid, tid;
+    pid_t pid, ppid, tid;
 
-	pid = getpid();
-	ppid = getppid();
-	tid = syscall(SYS_gettid);
-	global++;
+    pid = getpid();
+    ppid = getppid();
+    tid = syscall(SYS_gettid);
+    global++;
 
-	printf("PPID: %d\nPID: %d\nTID: %d\nGlobal: %d\n\n", ppid, pid, tid, global);
+    printf("PPID: %d\nPID: %d\nTID: %d\nGlobal: %d\n\n", ppid, pid, tid, global);
 
-	return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }
