@@ -19,26 +19,26 @@ void* printDataAndWait();
 int global = 0;
 
 int main(int argc, char** argv) {
-
+	
 	int pid = fork();
 	pthread_t thread1, thread2;
 
 	if (pid == 0) { // CHILDREN
-		
-        printData();
+        	
+		printData();
 		pthread_create(&thread1, NULL, printDataAndWait, NULL);
 		pthread_create(&thread2, NULL, printDataAndWait, NULL);
 		pthread_join(thread1, NULL);
 		pthread_join(thread2, NULL);
 	}
-    else if (pid > 0) { // PARENT
-		
-        printData();
+	else if (pid > 0) { // PARENT
+
+        	printData();
 		waitpid(pid, NULL, 0);
 	}
-    else { // Error
-        
-        perror("Error forking process...");
+    	else { // Error
+
+		perror("Error forking process...");
 	}
 
 	return EXIT_SUCCESS;
