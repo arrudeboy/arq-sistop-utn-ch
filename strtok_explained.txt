@@ -1,0 +1,16 @@
+
+
+char* strtok(char* string, char* token) {
+    static struct context theContext;
+    .
+    .
+    .
+    return subString;
+}
+
+char myString[] = "HOLA,COMO,ESTAS";
+
+char* valor1 = strtok(myString, ","); ===> HOLA
+...
+char* valor2 = strtok(NULL, ","); ===> COMO
+char* valor3 = strtok(NULL, ","); ===> ESTAS
