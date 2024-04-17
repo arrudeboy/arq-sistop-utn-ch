@@ -9,15 +9,14 @@ int openSemaphore(sem_t **semaphore, char *sem_name);
 
 int main(int argc, char *argv[])
 {
-
-    char *sem_name = argv[1];
-    char *operation = argv[2];
-
     if (argc != 3)
     {
         printf("Usage: %s <value|wait|signal>\n", argv[0]);
         return EXIT_FAILURE;
     }
+
+    char *sem_name = argv[1];
+    char *operation = argv[2];
 
     sem_t *semaphore;
     int failed = openSemaphore(&semaphore, sem_name);
