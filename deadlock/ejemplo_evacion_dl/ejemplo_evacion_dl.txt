@@ -1,0 +1,16 @@
+RT:
+
+- Recurso A = 3
+- Recurso B = 3
+
+Llega proceso 1 (necesidad maxima: A -> 2, B -> 2)
+
+SO lo deja proceder
+
+Mientras proceso 1 continua ejecutando ...
+
+Llega proceso 2 (necesidad maxima: A -> 1, B -> 2)
+
+SO => P1(A->2 + B->2) + P2(A->1 + B->2) = A->3 y B->4
+
+SO => como A->3 y B->4 <= RT se deniega el inicio del proceso 2
