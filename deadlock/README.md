@@ -58,7 +58,8 @@ Tener instalado [Docker](https://docs.docker.com/get-docker/) en tu maquina.
 En este momento se produce un __deadlock__ ya que _A_ obtuvo y retiene al registro 1 mientras espera obtener el registro 2. Mientras que _B_ hace lo propio con el registro 2 mientras espera obtener el registro 1.
 
 Mysql server nos muestra el siguiente mensaje en el cliente A:
-`mysql> UPDATE usuarios SET saldo = saldo + 1000.0 WHERE id = 2;`
-`ERROR 1213 (40001): Deadlock found when trying to get lock; try restarting transaction`
+
+    mysql> UPDATE usuarios SET saldo = saldo + 1000.0 WHERE id = 2;
+    ERROR 1213 (40001): Deadlock found when trying to get lock; try restarting transaction
 
 Y la accion de recuperacion que toma este servidor de base de datos es abortar las transacciones en curso que estan involucradas en el deadlock, es decir las ultimas transacciones que iniciamos con `BEGIN` tanto en el cliente A como en el cliente B.
