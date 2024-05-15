@@ -11,7 +11,7 @@
 
 #### Posibles soluciones
 
-1. [Planificacion_procesos.xlsx](1_Planificacion_procesos.xlsx)
+1. [Planificacion_procesos.xlsx](1_Planificacion_procesos.xlsx) ([ver en Google Sheet](https://docs.google.com/spreadsheets/d/1Z0qTc_vEgnJOioHjlGQl4Uw79CQwt-60UgWyu3gEHMA/edit?usp=sharing))
 2. [hilos.c](hilos.c)
 3. Linux Bash commands:
     - ejercicio 4.4:
