@@ -14,3 +14,8 @@ Llega proceso 2 (necesidad maxima: A -> 1, B -> 2)
 SO => P1(A->2 + B->2) + P2(A->1 + B->2) = A->3 y B->4
 
 SO => como A->3 y B->4 <= RT se deniega el inicio del proceso 2
+
+Conclusiones:
+ - Se deniega el inicio a un proceso porque "podria" ocurrir deadlok
+ - Estrategia pesimista: ante la minima posibiliad de que ocurra un deadlock deniega un proceso
+ - Ineficiente -> limita la multiprogramacion
