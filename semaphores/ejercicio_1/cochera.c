@@ -29,7 +29,11 @@ int main(int argc, char *argv[])
 
     // inicializo el semaforo que controla la capacidad de la cochera con valor 10 (cantidad max de lugares)
     int failedCochera = open_semaphore(&COCHERA, "cochera", 10);
-
+    if (failedCochera == -1) {
+        puts("Fallo la inicializacion del semaforo 'cochera'");
+        return EXIT_FAILURE;
+    }
+    
     // inicializo el semaforo mutex que controla el acceso al montacarga (ocupado/libre). Por defecto un mutex se inicializa en 1 (libre)
     pthread_mutex_init(&MONTACARGA, NULL);
 
