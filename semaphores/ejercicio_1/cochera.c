@@ -42,6 +42,7 @@ int main(int argc, char *argv[])
     if (sscanf(argv[1], "%i", &threads) != 1)
     {
         fprintf(stderr, "ERROR - el argumento 'autos' debe ser un numero\n");
+        return EXIT_FAILURE;
     }
     pthread_t tid[threads][2];
 
