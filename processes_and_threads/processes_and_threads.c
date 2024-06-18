@@ -20,7 +20,6 @@ int global = 0;
 
 int main(int argc, char **argv)
 {
-
     int pid = fork();
     pthread_t thread1, thread2;
 
@@ -52,14 +51,13 @@ void *printDataAndWait()
 {
 
     printData();
-    sleep(10);
+    sleep(20);
 
     return EXIT_SUCCESS;
 }
 
 void *printData()
 {
-
     pid_t pid, ppid, tid;
 
     pid = getpid();
@@ -68,6 +66,7 @@ void *printData()
     global++;
 
     printf("PPID: %d\nPID: %d\nTID: %d\nGlobal: %d\n\n", ppid, pid, tid, global);
+    sleep(15);
 
     return EXIT_SUCCESS;
 }
